@@ -1,0 +1,18 @@
+package starter.questions.makeAppointment;
+
+
+import net.serenitybdd.screenplay.Actor;
+import net.serenitybdd.screenplay.Question;
+import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
+import starter.ui.makeAppointment.AppointmentForm;
+
+public class QHealthcare implements Question<String> {
+
+  public static Question<String> value(){
+    return new QHealthcare();
+  }
+  @Override
+  public String answeredBy(Actor actor) {
+    return BrowseTheWeb.as(actor).find(AppointmentForm.Message_healthcare).getText().trim();
+  }
+}
